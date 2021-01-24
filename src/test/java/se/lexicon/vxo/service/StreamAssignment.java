@@ -10,6 +10,7 @@ import java.time.Period;
 import java.util.*;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * (No Anonymous Inner Classes or Class implementation of functional interfaces)
  *
  */
-public class StreamAssignment {
+public class  StreamAssignment {
 
     private static List<Person> people = People.INSTANCE.getPeople();
 
@@ -43,6 +44,8 @@ public class StreamAssignment {
         long amount = 0;
 
         //Write code here
+        amount = Stream.of(people.size())
+                .count();
 
         assertEquals(10000, amount);
     }
