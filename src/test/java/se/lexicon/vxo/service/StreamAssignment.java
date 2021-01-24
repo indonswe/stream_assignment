@@ -46,8 +46,8 @@ public class  StreamAssignment {
         long amount = 0;
 
         //Write code here
-        amount = Stream.of(people.size())
-                .count();
+        amount = people.stream().count();
+        System.out.println(amount);
 
         assertEquals(10000, amount);
     }
