@@ -47,7 +47,7 @@ public class  StreamAssignment {
 
         //Write code here
         amount = people.stream().count();
-        System.out.println(amount);
+        System.out.println(amount );
 
         assertEquals(10000, amount);
     }
@@ -59,7 +59,7 @@ public class  StreamAssignment {
     public void task3(){
         long amount = 0;
         int expected = 90;
-
+        amount = people.stream().filter(person -> person.getLastName().equals("Andersson")).count();
         //Write code here
 
         assertEquals(expected, amount);
