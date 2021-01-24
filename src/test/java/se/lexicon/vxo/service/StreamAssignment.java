@@ -10,6 +10,7 @@ import java.time.Period;
 import java.util.*;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,6 +34,7 @@ public class  StreamAssignment {
         List<Integer> integers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
 
         //Write code here
+        integers.stream().forEach(System.out::println);
 
     }
 
