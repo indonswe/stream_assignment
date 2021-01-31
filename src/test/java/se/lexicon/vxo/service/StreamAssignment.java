@@ -137,6 +137,19 @@ public class  StreamAssignment {
         Optional<Person> optional = null;
 
         //Write code here
+        //optional = people.stream().findAny(p -> p.equals(p.getPersonId()));
+        //optional = people.stream().findAny().filter(person -> person.equals(person.getPersonId(5436)));
+        //optional = people.stream().findFirst().filter(person -> person.equals(person.getPersonId()==5436));
+        //optional.get() = (Person) people.stream().filter(person -> person.equals(person.getPersonId()==5436));
+        //optional = Optional.of((Person) people.stream().filter(person -> person.equals(person.getPersonId() == 5436)));
+        //optional = Optional.of(people.get(people.contains(people.stream().filter(person -> person.equals(person.getPersonId()==5436))));
+        //optional = Optional.of(people.stream().filter(person -> person.getPersonId()==5436));
+        optional = Optional.of(people.stream().filter(person -> person.getPersonId() == 5436).findFirst().get());
+        //List<String> filteredList = listOfOptionals.stream()
+                //.filter(Optional::isPresent)
+                //.map(Optional::get)
+                //.collect(Collectors.toList());
+        System.out.println(optional);
 
         assertNotNull(optional);
         assertTrue(optional.isPresent());
