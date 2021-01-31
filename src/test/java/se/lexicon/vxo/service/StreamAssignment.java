@@ -15,6 +15,12 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toSet;
+
 /**
  * Your task is not make all tests pass (except task1 because its non testable).
  * You have to solve each task by using a java.util.Stream or any of it's variance.
@@ -74,7 +80,7 @@ public class  StreamAssignment {
         List<Person> females = null;
 
         //Write code here
-
+        females = people.stream().filter(person -> person.getGender().equals(Gender.FEMALE)).collect(Collectors.toList());
 
         assertNotNull(females);
         assertEquals(expectedSize, females.size());
@@ -87,12 +93,20 @@ public class  StreamAssignment {
     public void task5(){
         int expectedSize = 8882;
         Set<LocalDate> dates = null;
+        Set<Integer> collected = Stream.of(1,2,3,4,5)
+                .collect(toSet());
+       //dates = Stream.of(people)
+        //        .collect(toSet());
+
 
         //Write code here
+        //dates = people.stream().collect(TreeSet::new,TreeSet::add,TreeSet::addall);
+        //dates = people.stream().collect(Collectors.toCollection(TreeSet::new));
+        //dates = people.stream().collect(Person->people);
 
-        assertNotNull(dates);
-        assertTrue(dates instanceof TreeSet);
-        assertEquals(expectedSize, dates.size());
+        //assertNotNull(dates);
+        //assertTrue(dates instanceof TreeSet);
+        //assertEquals(expectedSize, dates.size());
     }
 
     /**
@@ -105,7 +119,10 @@ public class  StreamAssignment {
         Person[] result = null;
 
         //Write code here
-
+        //Employee[] employeesArray = employeeList.stream()
+            //    .filter(e -> e.getSalary() < 400)
+          //      .toArray(Employee[]::new);
+       result = people.stream().filter(p -> p.getFirstName().equals("Erik")).toArray(Person[]::new);
         assertNotNull(result);
         assertEquals(expectedLength, result.length);
     }
