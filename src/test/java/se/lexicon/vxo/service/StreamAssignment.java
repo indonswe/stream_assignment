@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.function.ToIntFunction;
 import java.util.stream.*;
 
+import static java.util.stream.Collectors.filtering;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Set;
@@ -91,20 +92,20 @@ public class  StreamAssignment {
     public void task5(){
         int expectedSize = 8882;
         Set<LocalDate> dates = null;
-        Set<Integer> collected = Stream.of(1,2,3,4,5)
-                .collect(toSet());
+        //Set<Integer> collected = Stream.of(1,2,3,4,5)
+               // .collect(toSet());
        //dates = Stream.of(people)
         //        .collect(toSet());
-
+        //Stream<LocalDate> str = people.stream().m
 
         //Write code here
         //dates = people.stream().collect(TreeSet::new,TreeSet::add,TreeSet::addall);
         //dates = people.stream().collect(Collectors.toCollection(TreeSet::new));
-        //dates = people.stream().collect(Person->people);
+        //dates = people.stream().collect(Collectors.toSet(filtering(people.add(people.get(people.per))
 
-        //assertNotNull(dates);
-        //assertTrue(dates instanceof TreeSet);
-        //assertEquals(expectedSize, dates.size());
+        assertNotNull(dates);
+        assertTrue(dates instanceof TreeSet);
+        assertEquals(expectedSize, dates.size());
     }
 
     /**
@@ -206,7 +207,18 @@ public class  StreamAssignment {
 
         Optional<String> optional = null;
 
+
+
         //Write code here
+
+        //optional = Optional.of(people.stream().filter(person -> person.getPersonId() == 5914).findFirst().get().getDateOfBirth().toString());
+        //List<String> filteredList = listOfOptionals.stream()
+        //.filter(Optional::isPresent)
+        //.map(Optional::get)
+        //.collect(Collectors.toList());
+        optional = Optional.of(people.stream().filter(person -> person.getPersonId() == 5914).findFirst().get().getDateOfBirth().toString());
+
+        System.out.println(optional);
 
         assertNotNull(optional);
         assertTrue(optional.isPresent());
@@ -225,6 +237,8 @@ public class  StreamAssignment {
         double averageAge = 0;
 
         //Write code here
+
+
 
         assertTrue(averageAge > 0);
         assertEquals(expected, averageAge, .01);
