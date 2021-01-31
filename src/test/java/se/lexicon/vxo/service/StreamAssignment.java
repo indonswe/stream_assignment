@@ -97,7 +97,7 @@ public class  StreamAssignment {
        //dates = Stream.of(people)
         //        .collect(toSet());
         //Stream<LocalDate> str = people.stream().m
-
+        dates = people.stream().map(person -> person.getDateOfBirth()).collect(Collectors.toSet());
         //Write code here
         //dates = people.stream().collect(TreeSet::new,TreeSet::add,TreeSet::addall);
         //dates = people.stream().collect(Collectors.toCollection(TreeSet::new));
