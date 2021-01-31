@@ -10,6 +10,9 @@ public class PersonDto {
         this.fullName = fullName;
     }
 
+    public PersonDto(Person person) {
+    }
+
     public int getPersonId() {
         return personId;
     }

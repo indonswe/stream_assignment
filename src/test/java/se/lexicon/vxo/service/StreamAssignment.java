@@ -9,9 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -166,7 +164,9 @@ public class  StreamAssignment {
         Optional<Person> optional = null;
 
         //Write code here
-
+        //optional = Optional.of(people.stream().filter(person -> person.getPersonId() == 5436).findFirst().get());
+        //List <Person> res = storage.findAndSort(p->p.getFirstName().startsWith("A"), Comparator.comparing(Person::getBirthDate));
+        optional = (people.stream().min(Comparator.comparing(Person::getDateOfBirth)));
         assertNotNull(optional);
         assertEquals(expectedBirthDate, optional.get().getDateOfBirth());
     }
@@ -182,6 +182,14 @@ public class  StreamAssignment {
         List<PersonDto> dtoList = null;
 
         //Write code here
+        //List<String> filteredList = listOfOptionals.stream()
+        //.filter(Optional::isPresent)
+        //.map(Optional::get)
+        //.collect(Collectors.toList());
+
+        //dtoList = people.stream().filter(person -> person.getDateOfBirth().isBefore(date)).map(PersonDto::new instanceof PersonDto).collect(Collectors.toList());
+        dtoList = people.stream().filter(person -> person.getDateOfBirth().isBefore(date)).map(person -> new PersonDto(person)).collect(Collectors.toList());
+
 
         assertNotNull(dtoList);
         assertEquals(expectedSize, dtoList.size());
