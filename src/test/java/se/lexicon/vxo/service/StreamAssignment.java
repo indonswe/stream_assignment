@@ -237,7 +237,9 @@ public class  StreamAssignment {
         double averageAge = 0;
 
         //Write code here
+        averageAge = people.stream().map(person -> new ToIntFunction<>() {}).collect(Collectors.toList());
 
+        //averageAge = people.stream().
 
 
         assertTrue(averageAge > 0);
